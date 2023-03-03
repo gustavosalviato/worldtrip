@@ -1,0 +1,85 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "red"
+  },
+  "title": {
+    "__TYPE__": "FieldContent",
+    "value": "deeply",
+    "type": "Text"
+  },
+  "subtitle": {
+    "__TYPE__": "FieldContent",
+    "value": "flight",
+    "type": "Text"
+  },
+  "banner": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+      "width": 3456,
+      "height": 3456
+    },
+    "url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
+    "width": 3456,
+    "height": 3456,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 0,
+        "y": 0
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {}
+  },
+  "description": {
+    "__TYPE__": "StructuredTextContent",
+    "value": [
+      {
+        "type": "paragraph",
+        "content": {
+          "text": "Amet consequat voluptate commodo qui aute officia eu. Ipsum exercitation pariatur fugiat elit in eiusmod."
+        }
+      }
+    ]
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": [
+      {
+        "key": "country$244c6c95-595a-4ea2-98df-4e3c5d9d20c2",
+        "name": "country",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {},
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": [
+                [
+                  "country",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "sides",
+                    "type": "Text"
+                  }
+                ],
+                [
+                  "city",
+                  {
+                    "__TYPE__": "FieldContent",
+                    "value": "vegetable",
+                    "type": "Text"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

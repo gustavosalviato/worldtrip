@@ -1,0 +1,12 @@
+{
+  "_cts": {
+    "continent": {}
+  },
+  "slices": {
+    "Country": {
+      "default": {
+        "primary": {}
+      }
+    }
+  }
+}
