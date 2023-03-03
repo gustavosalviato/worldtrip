@@ -11,36 +11,38 @@ import { RichText } from 'prismic-dom'
 
 import Head from 'next/head'
 
-interface ContinentDetailProps {
-  continent: {
-    slug: string
-    title: string
-    subtitle: string
-    banner: string
-    description: string
-    countries: {
-      items: {
-        city: string
-        country: string
-        banner: {
-          url: string
-        }
-      }[]
-    }[]
-  }
+interface IContinent {
+  slug: string
+  title: string
+  subtitle: string
+  banner: string
+  description: string
 }
 
-export default function ContinentDetail({ continent }: ContinentDetailProps) {
-  const countries = continent.countries[0].items
+interface ICountry {
+  country: string
+  city: string
+  banner: string
+}
+
+interface ContinentDetailProps {
+  continent: IContinent
+  countries: ICountry[]
+}
+
+export default function ContinentDetail({
+  continent,
+  countries,
+}: ContinentDetailProps) {
   return (
     <>
       <Head>
-        <title>WorldTrip | {`${continent.title}`}</title>
+        <title>WorldTrip | {`${continent?.title}`}</title>
       </Head>
       <Flex direction="column" mb="10">
         <Header />
 
-        <Banner imgUrl={continent.banner} title={continent.title} />
+        <Banner imgUrl={continent?.banner} title={continent?.title} />
 
         <Flex w="100%" maxWidth="1440px" mx="auto" direction="column" mt="20">
           <Grid
@@ -54,7 +56,7 @@ export default function ContinentDetail({ continent }: ContinentDetailProps) {
             px="8"
             gap={['16px', '70px']}
           >
-            <Bio description={continent.description} />
+            <Bio description={continent?.description} />
 
             <Info />
           </Grid>
@@ -74,7 +76,7 @@ export default function ContinentDetail({ continent }: ContinentDetailProps) {
             justifyItems="center"
             mt="10"
           >
-            {countries.map((item) => {
+            {countries?.map((item) => {
               return (
                 <CountryItem
                   key={item.city}
@@ -126,12 +128,22 @@ export const getStaticProps: GetStaticProps = async ({
     subtitle: continentResponse.data.subtitle,
     description: RichText.asHtml(continentResponse.data.description),
     banner: continentResponse.data.banner.url,
-    countries: continentResponse.data.slices,
   }
+
+  const countries = continentResponse.data.slices[0].items.map((item: any) => {
+    return {
+      country: item.country,
+      city: item.city,
+      banner: item.banner.url,
+    }
+  })
+
+  console.log(continentResponse.data.slices[0].items)
 
   return {
     props: {
       continent,
+      countries,
     },
     revalidate: 60 * 60 * 24, // 1 day
   }

@@ -3,9 +3,7 @@ import { Box, Flex, VStack, Text } from '@chakra-ui/react'
 interface CountryItemProps {
   country: string
   city: string
-  banner: {
-    url: string
-  }
+  banner: string
 }
 
 export function CountryItem({ city, country, banner }: CountryItemProps) {
@@ -13,7 +11,7 @@ export function CountryItem({ city, country, banner }: CountryItemProps) {
     <Box w="100%" overflow="hidden" borderRadius="6px" maxWidth="256px">
       <img
         style={{ height: '150px', width: '100%', objectFit: 'cover' }}
-        src={banner.url}
+        src={banner}
         alt=""
       />
 

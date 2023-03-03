@@ -33,9 +33,6 @@ O WorldTrip é uma aplicação construída do zero totalmente desenvolvida com C
 
 - [Projeto Online](https://maykbrito.github.io/devlinks)
 
-## 🔖 Layout
-
-
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT.
